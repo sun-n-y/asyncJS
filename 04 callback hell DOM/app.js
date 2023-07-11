@@ -1,25 +1,20 @@
-//make soup
-//boil water 10 min
-//chop carrots
-//add carrots to boil for 5 min
-//chop onion
-//add onion to boil for 5 min
+const heading1 = document.querySelector('.one');
+const heading2 = document.querySelector('.two');
+const heading3 = document.querySelector('.three');
+const btn = document.querySelector('.btn');
 
-boilWater();
-console.log('chop carrots');
-
-function boilWater() {
-  console.log('boiling....');
+btn.addEventListener('click', () => {
   setTimeout(() => {
-    console.log('boiling done');
-    console.log('add carrots');
+    heading1.style.color = 'red';
     setTimeout(() => {
-      console.log('carrots are done');
-      console.log('add onion');
+      heading2.style.color = 'green';
       setTimeout(() => {
-        console.log('onion done');
-      }, 500);
-    }, 500);
-    console.log('chop onion');
+        heading3.style.color = 'blue';
+      }, 1000);
+    }, 1000);
   }, 1000);
-}
+});
+
+console.log('im an second');
+
+console.log(window);

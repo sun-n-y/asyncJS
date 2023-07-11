@@ -5,13 +5,21 @@
 //chop onion
 //add onion to boil for 5 min
 
-boilWater(0);
+boilWater();
 console.log('chop carrots');
 
-function boilWater(time) {
+function boilWater() {
   console.log('boiling....');
-  //browser takes the callack and runs it for the time,then comes back with it
   setTimeout(() => {
-    console.log('done.');
-  }, time);
+    console.log('boiling done');
+    console.log('add carrots');
+    setTimeout(() => {
+      console.log('carrots are done');
+      console.log('add onion');
+      setTimeout(() => {
+        console.log('onion done');
+      }, 500);
+    }, 500);
+    console.log('chop onion');
+  }, 1000);
 }

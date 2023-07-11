@@ -2,16 +2,24 @@ const heading1 = document.querySelector('.one');
 const heading2 = document.querySelector('.two');
 const heading3 = document.querySelector('.three');
 const btn = document.querySelector('.btn');
+const container = document.querySelector('.img-container');
+const url = 'https://source.unsplash.com/random';
 
-btn.addEventListener('click', () => {});
-
-const promise = new Promise((resolve, reject) => {
-  let value = false;
-  if (value) {
-    resolve(['value is true']);
-  } else {
-    reject(`there was a error, value is false`);
-  }
+btn.addEventListener('click', () => {
+  loadImage(url)
+    .then((data) => container.appendChild(data))
+    .catch((err) => console.log(err));
 });
 
-promise.then((data) => console.log(data)).catch((error) => console.log(error));
+function loadImage(url) {
+  return new Promise((resolve, reject) => {
+    let img = new Image();
+    img.addEventListener('load', () => {
+      resolve(img);
+    });
+    img.addEventListener('error', () => {
+      reject(new Error(`Failed to load image from the source: ${url}`));
+    });
+    img.src = url;
+  });
+}

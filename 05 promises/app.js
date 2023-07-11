@@ -3,18 +3,15 @@ const heading2 = document.querySelector('.two');
 const heading3 = document.querySelector('.three');
 const btn = document.querySelector('.btn');
 
-btn.addEventListener('click', () => {
-  setTimeout(() => {
-    heading1.style.color = 'red';
-    setTimeout(() => {
-      heading2.style.color = 'green';
-      setTimeout(() => {
-        heading3.style.color = 'blue';
-      }, 1000);
-    }, 1000);
-  }, 1000);
+btn.addEventListener('click', () => {});
+
+const promise = new Promise((resolve, reject) => {
+  let value = false;
+  if (value) {
+    resolve(['value is true']);
+  } else {
+    reject(`there was a error, value is false`);
+  }
 });
 
-console.log('im an second');
-
-console.log(window);
+promise.then((data) => console.log(data)).catch((error) => console.log(error));

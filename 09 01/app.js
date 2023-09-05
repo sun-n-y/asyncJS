@@ -1,20 +1,17 @@
 //
+const heading1 = document.querySelector('.one');
+const heading2 = document.querySelector('.two');
+const heading3 = document.querySelector('.three');
+const btn = document.querySelector('.btn');
 
-boilWater();
-console.log('chop carrots');
-
-function boilWater() {
-  console.log('boiling...');
+btn.addEventListener('click', () => {
   setTimeout(() => {
-    console.log('done.');
-    console.log('add carrots');
+    heading1.style.color = 'red';
     setTimeout(() => {
-      console.log('carrots done');
-      console.log('add onions');
+      heading2.style.color = 'green';
       setTimeout(() => {
-        console.log('onion done');
-      }, 500);
-    }, 500);
-    console.log('chop onion');
-  }, 10000);
-}
+        heading3.style.color = 'blue';
+      }, 1000);
+    }, 2000);
+  }, 1000);
+});

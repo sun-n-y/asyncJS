@@ -26,6 +26,7 @@ function loadImage(url) {
     img.addEventListener('error', () => {
       reject(new Error(`failed to load image from source: ${url}`));
     });
+    console.log('hi');
   });
   return promise;
 }

@@ -5,14 +5,21 @@ const heading3 = document.querySelector('.three');
 
 const btn = document.querySelector('.btn');
 
-btn.addEventListener('click', () => {
-  addColor(1000, heading1, 'red')
-    .then(() => addColor(2000, heading2, 'green'))
-    .then(() => addColor(1000, heading3, 'blue'))
-    .catch((err) => {
-      console.log(err);
-    });
+btn.addEventListener('click', async () => {
+  const result = await displayColor();
+  console.log(result);
 });
+
+async function displayColor() {
+  try {
+    await addColor(1000, heading1, 'red');
+    await addColor(2000, heading2, 'green');
+    await addColor(1000, heading3, 'blue');
+  } catch (error) {
+    console.log(error);
+  }
+  return 'hello';
+}
 
 function addColor(time, element, color) {
   return new Promise((reslove, reject) => {
